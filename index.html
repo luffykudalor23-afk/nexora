@@ -1,16 +1,30 @@
+cd ~/nexora
+
+cat > index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Nexora Technologies provides AI content,
-          website development, and business automation services.">
+    <meta name="description" content="Nexora Technologies helps businesses grow with AI-powered content, professional websites, and digital automation.">
 
-    <title>Nexora Technologies | Intelligent Solutions</title>
+    <meta name="theme-color" content="#080d1b">
+
+    <title>Nexora Technologies | Intelligent Digital Solutions</title>
 
     <style>
+        :root {
+            --background: #080d1b;
+            --surface: #10182b;
+            --surface-light: #16223a;
+            --primary: #6c7cff;
+            --secondary: #26d9c4;
+            --text: #f5f7ff;
+            --muted: #aab6ce;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,170 +33,407 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0b1020;
-            color: #f1f5f9;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
         }
 
         header {
-            padding: 20px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 13, 27, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #263047;
+            gap: 20px;
         }
 
         .logo {
             font-size: 23px;
-            font-weight: bold;
-            color: #60a5fa;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
         nav a {
-            color: #f1f5f9;
-            text-decoration: none;
-            margin-left: 15px;
+            color: var(--muted);
             font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
         }
 
         .hero {
-            min-height: 75vh;
-            padding: 100px 7%;
-            text-align: center;
+            min-height: 650px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            text-align: center;
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(108, 124, 255, 0.2),
+                    transparent 60%
+                );
         }
 
         .tag {
-            color: #60a5fa;
-            font-size: 13px;
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(38, 217, 196, 0.35);
+            border-radius: 30px;
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         h1 {
-            font-size: clamp(36px, 8vw, 64px);
-            line-height: 1.15;
-            max-width: 850px;
+            font-size: clamp(38px, 7vw, 76px);
+            line-height: 1.1;
+            letter-spacing: -2px;
             margin-bottom: 25px;
         }
 
         h1 span {
-            color: #60a5fa;
+            display: block;
+            color: var(--primary);
         }
 
         .hero p {
-            max-width: 600px;
-            color: #b7c2d5;
-            margin-bottom: 30px;
+            max-width: 690px;
+            margin: 0 auto 32px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
         }
 
         .button {
-            display: inline-block;
-            background: #2563eb;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            padding: 12px 23px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            background: var(--primary);
             color: white;
-            padding: 13px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+            border: 1px solid transparent;
+            transition:
+                transform 0.2s,
+                background 0.2s;
         }
 
         .button:hover {
-            background: #1d4ed8;
+            transform: translateY(-3px);
+            background: #5668f0;
+        }
+
+        .button.secondary {
+            background: transparent;
+            border-color: var(--border);
+        }
+
+        .button.secondary:hover {
+            background: var(--surface-light);
         }
 
         section {
-            padding: 75px 7%;
+            padding: 90px 0;
         }
 
-        .section-title {
+        .section-heading {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 15px;
+            max-width: 720px;
+            margin: 0 auto 45px;
         }
 
-        .section-description {
-            text-align: center;
-            color: #b7c2d5;
-            max-width: 650px;
-            margin: 0 auto 40px;
+        .eyebrow {
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: clamp(30px, 5vw, 44px);
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+        .section-heading p,
+        .about-text p {
+            color: var(--muted);
         }
 
         .services {
-            background: #10182b;
+            background: #0b1121;
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 22px;
         }
 
-        .card {
-            padding: 28px;
-            background: #172238;
-            border: 1px solid #293751;
-            border-radius: 14px;
+        .service-card {
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition:
+                transform 0.2s,
+                border-color 0.2s;
         }
 
-        .card h3 {
-            color: #60a5fa;
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            background: rgba(108, 124, 255, 0.15);
+            border-radius: 12px;
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
             margin-bottom: 12px;
         }
 
-        .card p {
-            color: #c1cada;
-            font-size: 15px;
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 20px;
         }
 
-        .about {
-            text-align: center;
+        .service-link {
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 700;
         }
 
-        .about p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #b7c2d5;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .vision-card {
+            padding: 35px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(108, 124, 255, 0.18),
+                    rgba(38, 217, 196, 0.06)
+                );
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .vision-card h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .vision-card p {
+            color: var(--muted);
+        }
+
+        .vision-list {
+            list-style: none;
+            margin-top: 22px;
+        }
+
+        .vision-list li {
+            margin: 12px 0;
+        }
+
+        .vision-list li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: 800;
+            margin-right: 10px;
         }
 
         .contact {
+            background:
+                radial-gradient(
+                    ellipse at 50% 100%,
+                    rgba(108, 124, 255, 0.15),
+                    transparent 65%
+                ),
+                var(--surface);
             text-align: center;
-            background: #10182b;
         }
 
-        .contact p {
-            color: #b7c2d5;
-            max-width: 600px;
-            margin: 0 auto 25px;
+        .contact-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--muted);
         }
 
         footer {
-            padding: 25px 7%;
-            text-align: center;
-            color: #94a3b8;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p {
+            color: var(--muted);
             font-size: 13px;
         }
 
-        @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 800px) {
+            .service-grid {
+                grid-template-columns: 1fr;
             }
 
-            nav a {
-                margin: 0 7px;
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .hero {
-                padding-top: 75px;
-                padding-bottom: 75px;
+                min-height: auto;
+                padding: 90px 0;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .navbar {
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .service-card,
+            .vision-card {
+                padding: 24px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button-group .button {
+                width: 100%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
             }
         }
     </style>
@@ -191,111 +442,238 @@
 <body>
 
     <header>
-        <div class="logo">NEXORA</div>
+        <div class="container navbar">
+            <a href="#home" class="logo">NEXORA<span>.</span></a>
 
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <main>
 
-        <section class="hero">
-            <div class="tag">TECHNOLOGY WITHOUT BORDERS</div>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="tag">TECHNOLOGY WITHOUT BORDERS</div>
 
-            <h1>
-                Turning Ideas Into
-                <span>Intelligent Solutions.</span>
-            </h1>
+                <h1>
+                    Turning Ideas Into
+                    <span>Intelligent Solutions.</span>
+                </h1>
 
-            <p>
-                We aim to help businesses work smarter through
-                AI-powered content, modern websites, and
-                practical business automation.
-            </p>
+                <p>
+                    Nexora Technologies helps businesses and
+                    entrepreneurs move forward with AI-powered
+                    content, professional websites, and smarter
+                    digital workflows.
+                </p>
 
-            <a class="button" href="#services">
-                Explore Our Services
-            </a>
+                <div class="button-group">
+                    <a class="button" href="#services">
+                        Explore Our Services
+                    </a>
+
+                    <a class="button secondary" href="#contact">
+                        Contact Nexora
+                    </a>
+                </div>
+            </div>
         </section>
 
         <section class="services" id="services">
-            <h2 class="section-title">What We Do</h2>
+            <div class="container">
 
-            <p class="section-description">
-                Digital services designed to help businesses
-                establish their presence and improve their workflows.
-            </p>
+                <div class="section-heading">
+                    <div class="eyebrow">What We Do</div>
 
-            <div class="service-grid">
-
-                <article class="card">
-                    <h3>AI Content Studio</h3>
+                    <h2>Digital Solutions for Growth</h2>
 
                     <p>
-                        Marketing copy, product descriptions,
-                        social media content, and creative
-                        support for businesses.
+                        Practical digital services designed to
+                        help businesses communicate, establish
+                        their online presence, and work smarter.
                     </p>
-                </article>
+                </div>
 
-                <article class="card">
-                    <h3>Web Development</h3>
+                <div class="service-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            ✨
+                        </div>
+
+                        <h3>AI Content Studio</h3>
+
+                        <p>
+                            Get help creating marketing copy,
+                            social media captions, product
+                            descriptions, and business content
+                            tailored to your goals.
+                        </p>
+
+                        <a class="service-link" href="#contact">
+                            Discuss your project →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            💻
+                        </div>
+
+                        <h3>Website Development</h3>
+
+                        <p>
+                            Build your online presence with
+                            professional landing pages,
+                            business websites, and digital
+                            product catalogues.
+                        </p>
+
+                        <a class="service-link" href="#contact">
+                            Discuss your project →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            ⚙️
+                        </div>
+
+                        <h3>Business Automation</h3>
+
+                        <p>
+                            Simplify repetitive tasks with
+                            customer-support templates,
+                            organized workflows, and practical
+                            digital tools.
+                        </p>
+
+                        <a class="service-link" href="#contact">
+                            Discuss your project →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+
+                <div class="about-text">
+                    <div class="eyebrow">About Nexora</div>
+
+                    <h2>Technology That Moves Ideas Forward</h2>
 
                     <p>
-                        Mobile-friendly websites, landing pages,
-                        digital catalogues, and online portfolios.
+                        Nexora Technologies is an emerging
+                        digital venture focused on making
+                        useful technology and digital services
+                        more accessible to businesses and
+                        entrepreneurs.
                     </p>
-                </article>
-
-                <article class="card">
-                    <h3>Business Automation</h3>
 
                     <p>
-                        Practical workflows, reusable customer
-                        support responses, and tools to reduce
-                        repetitive tasks.
+                        We believe good technology should
+                        solve real problems. Our approach
+                        begins with understanding each
+                        customer's needs and finding practical
+                        ways to help.
                     </p>
-                </article>
+
+                    <a class="button" href="#contact">
+                        Let's Talk
+                    </a>
+                </div>
+
+                <div class="vision-card">
+                    <h3>Our Vision</h3>
+
+                    <p>
+                        To grow into a technology company
+                        creating useful digital products
+                        and intelligent tools for people
+                        around the world.
+                    </p>
+
+                    <ul class="vision-list">
+                        <li>Practical digital solutions</li>
+                        <li>Continuous learning and innovation</li>
+                        <li>Customer-focused services</li>
+                        <li>A future built around useful AI</li>
+                    </ul>
+                </div>
 
             </div>
         </section>
 
-        <section class="about" id="about">
-            <h2 class="section-title">Our Vision</h2>
-
-            <p>
-                Nexora aims to grow into a technology company
-                that develops useful software and accessible
-                AI-powered tools for people and businesses
-                around the world.
-            </p>
-        </section>
-
         <section class="contact" id="contact">
-            <h2 class="section-title">Let's Build Something</h2>
+            <div class="container contact-content">
 
-            <p>
-                Have a business challenge or a digital product
-                idea? We want to learn about the problems
-                that matter to you.
-            </p>
+                <div class="eyebrow">Let's Connect</div>
 
-            <a class="button" href="mailto:">
-                Contact Nexora
-            </a>
+                <h2>Let's Build Something</h2>
+
+                <p>
+                    Have a business challenge, need a website,
+                    or want help with digital content?
+                    Contact Nexora to discuss your idea and
+                    the next steps.
+                </p>
+
+                <div class="button-group">
+                    <a
+                        class="button"
+                        href="mailto:luffykudalor23@gmail.com?subject=Nexora%20Project%20Enquiry">
+                        📧 Email Nexora
+                    </a>
+
+                    <a
+                        class="button secondary"
+                        href="https://wa.me/233544989114?text=Hello%20Nexora%20Technologies%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        💬 WhatsApp Nexora
+                    </a>
+                </div>
+
+                <p class="contact-note">
+                    Tell us what you need, and we'll discuss
+                    the project with you.
+                </p>
+
+            </div>
         </section>
 
     </main>
 
     <footer>
-        <p>
-            &copy; <span id="year">2026</span>
-            Nexora Technologies. All rights reserved.
-        </p>
+        <div class="container footer-content">
+
+            <p>
+                &copy; <span id="year">2026</span>
+                Nexora Technologies. All rights reserved.
+            </p>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
     </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
+EOF
