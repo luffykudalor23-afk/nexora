@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Nexora Technologies provides AI content,
+          website development, and business automation services.">
+
+    <title>Nexora Technologies | Intelligent Solutions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #263047;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        nav a {
+            color: #f1f5f9;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .hero {
+            min-height: 75vh;
+            padding: 100px 7%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tag {
+            color: #60a5fa;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 8vw, 64px);
+            line-height: 1.15;
+            max-width: 850px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #b7c2d5;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 13px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #b7c2d5;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .services {
+            background: #10182b;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            padding: 28px;
+            background: #172238;
+            border: 1px solid #293751;
+            border-radius: 14px;
+        }
+
+        .card h3 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #c1cada;
+            font-size: 15px;
+        }
+
+        .about {
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #b7c2d5;
+        }
+
+        .contact {
+            text-align: center;
+            background: #10182b;
+        }
+
+        .contact p {
+            color: #b7c2d5;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        footer {
+            padding: 25px 7%;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero {
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">NEXORA</div>
+
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="tag">TECHNOLOGY WITHOUT BORDERS</div>
+
+            <h1>
+                Turning Ideas Into
+                <span>Intelligent Solutions.</span>
+            </h1>
+
+            <p>
+                We aim to help businesses work smarter through
+                AI-powered content, modern websites, and
+                practical business automation.
+            </p>
+
+            <a class="button" href="#services">
+                Explore Our Services
+            </a>
+        </section>
+
+        <section class="services" id="services">
+            <h2 class="section-title">What We Do</h2>
+
+            <p class="section-description">
+                Digital services designed to help businesses
+                establish their presence and improve their workflows.
+            </p>
+
+            <div class="service-grid">
+
+                <article class="card">
+                    <h3>AI Content Studio</h3>
+
+                    <p>
+                        Marketing copy, product descriptions,
+                        social media content, and creative
+                        support for businesses.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Mobile-friendly websites, landing pages,
+                        digital catalogues, and online portfolios.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Business Automation</h3>
+
+                    <p>
+                        Practical workflows, reusable customer
+                        support responses, and tools to reduce
+                        repetitive tasks.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2 class="section-title">Our Vision</h2>
+
+            <p>
+                Nexora aims to grow into a technology company
+                that develops useful software and accessible
+                AI-powered tools for people and businesses
+                around the world.
+            </p>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="section-title">Let's Build Something</h2>
+
+            <p>
+                Have a business challenge or a digital product
+                idea? We want to learn about the problems
+                that matter to you.
+            </p>
+
+            <a class="button" href="mailto:">
+                Contact Nexora
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="year">2026</span>
+            Nexora Technologies. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
